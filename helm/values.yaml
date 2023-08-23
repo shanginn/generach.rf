@@ -1,15 +1,13 @@
 replicaCount: 1
 
-imagee:
-  repository: ghcr.io/shanginn/generach
+image:
+  repository: ghcr.io/shanginn/generach.rf
   pullPolicy: Always
   tag: "latest"
 
-server_ws_port: 3333
 service:
-  client:
-    type: ClusterIP
-    port: 30080
+  type: ClusterIP
+  port: 80
 
 ingress:
   enabled: true
@@ -17,21 +15,12 @@ ingress:
     cert-manager.io/issuer-kind: ClusterIssuer
     cert-manager.io/issuer: letsencrypt-prod
   hosts:
-    - xn--b1abcbftdmxceabz.xn--p1ai
+    - xn--80afga3bt4c.xn--p1ai
   tls:
-    - secretName: minijournal-tls
+    - secretName: generach-tls
       hosts:
-        - xn--b1abcbftdmxceabz.xn--p1ai
+        - xn--80afga3bt4c.xn--p1ai
 
 serviceAccount:
   create: true
-  name: "minijournal"
-
-env:
-  POSTGRES_HOST: pgsql-postgresql.pgsql
-  POSTGRES_PORT: 5432
-  POSTGRES_DB: minijournal
-  POSTGRES_USER: minijournal
-
-envSecrets:
-  POSTGRES_PASSWORD: ""
+  name: "generach"
