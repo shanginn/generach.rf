@@ -38,5 +38,5 @@ spec:
               service:
                 name: {{ include "generach.fullname" $ }}
                 port:
-                  name: frontend
+                  name: http
     {{- end}}
