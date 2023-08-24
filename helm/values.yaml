@@ -16,10 +16,12 @@ ingress:
     cert-manager.io/issuer: letsencrypt-prod
   hosts:
     - xn--80afga3bt4c.xn--p1ai
+    - generach.ru
   tls:
     - secretName: generach-tls
       hosts:
         - xn--80afga3bt4c.xn--p1ai
+        - generach.ru
 
 serviceAccount:
   create: true
